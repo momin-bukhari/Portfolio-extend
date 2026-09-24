@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me — Syed Abdul Momin Bukhari</title>
+  <meta name="description" content="Get in touch with Syed Abdul Momin Bukhari — email, GitHub, LinkedIn, and a direct contact form.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:   #f5f0e8;
+      --paper:   #ede8dc;
+      --amber:   #c8860a;
+      --amber-d: #9e6a08;
+      --ink:     #2c2416;
+      --muted:   #7a6a52;
+      --border:  #c4b89a;
+      --serif:   'IM Fell English SC', Georgia, serif;
+      --mono:    'Courier Prime', 'Courier New', monospace;
+      --body:    'IM Fell English', Georgia, serif;
+    }
+
+    body {
+      font-family: var(--body);
+      background-color: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background-color: var(--ink);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 3px solid var(--amber);
+    }
+    nav .brand {
+      font-family: var(--serif); color: var(--amber); font-size: 1.1rem;
+      letter-spacing: 0.05em; padding: 1rem 0; text-decoration: none;
+    }
+    nav ul { list-style: none; display: flex; gap: 0.25rem; }
+    nav ul li a {
+      display: block; color: var(--cream); text-decoration: none;
+      font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 1.1rem 1rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav ul li a:hover, nav ul li a.active { color: var(--amber); border-bottom-color: var(--amber); }
+
+    /* ── Page Header ── */
+    .page-header {
+      background: var(--paper); border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem 2rem; text-align: center;
+    }
+    .page-header .eyebrow {
+      font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 0.5rem;
+    }
+    .page-header h1 { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem); color: var(--ink); }
+    .page-header p {
+      margin-top: 0.75rem; font-size: 0.92rem; color: var(--muted); font-style: italic;
+      max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.7;
+    }
+
+    /* ── Two-column layout ── */
+    .contact-wrapper {
+      max-width: 960px;
+      margin: 3.5rem auto 4rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3rem;
+    }
+
+    /* ── Info column ── */
+    .contact-info-col {}
+
+    .section-label {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 0.4rem;
+    }
+
+    .contact-info-col h2 {
+      font-family: var(--serif); font-size: 1.5rem; color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+
+    .contact-info-col p {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.8; margin-bottom: 2rem;
+    }
+
+    /* Contact items */
+    .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--ink);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-item:hover {
+      border-color: var(--amber);
+      box-shadow: 3px 3px 0 var(--amber);
+    }
+
+    .ci-body {}
+
+    .ci-label {
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 0.2rem;
+    }
+
+    .ci-value {
+      font-size: 0.88rem; color: var(--ink); word-break: break-all;
+    }
+
+    /* ── Form column ── */
+    .contact-form-col {}
+
+    .contact-form-col h2 {
+      font-family: var(--serif); font-size: 1.5rem; color: var(--ink);
+      margin-bottom: 1.2rem;
+    }
+
+    form { display: flex; flex-direction: column; gap: 1.1rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+
+    label {
+      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted);
+    }
+
+    input, textarea, select {
+      font-family: var(--mono); font-size: 0.88rem;
+      background: var(--paper); color: var(--ink);
+      border: 1.5px solid var(--border);
+      padding: 0.65rem 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus, select:focus { border-color: var(--amber); }
+
+    textarea { resize: vertical; min-height: 130px; }
+
+    .btn-submit {
+      font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.75rem 2rem;
+      background: var(--amber); border: 2px solid var(--amber);
+      color: var(--cream); cursor: pointer;
+      align-self: flex-start;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .btn-submit:hover { background: var(--amber-d); border-color: var(--amber-d); }
+
+    /* Success banner (hidden by default) */
+    #form-success {
+      display: none;
+      background: var(--ink); border: 1px solid var(--amber);
+      color: var(--amber); padding: 1rem 1.2rem;
+      font-size: 0.88rem; letter-spacing: 0.05em;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex; align-items: center; gap: 1rem;
+      color: var(--muted); font-size: 0.75rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      max-width: 960px; margin: 0 auto 1.5rem; padding: 0 2rem;
+    }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── Footer ── */
+    footer {
+      background-color: var(--ink); color: var(--muted);
+      text-align: center; font-size: 0.78rem;
+      padding: 1.4rem 1rem; letter-spacing: 0.08em;
+      border-top: 3px solid var(--amber);
+    }
+    footer span { color: var(--amber); }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ Navigation ══ -->
+  <nav id="main-nav">
+    <a class="brand" href="home.html">Momin Bukhari</a>
+    <ul>
+      <li><a href="home.html" id="nav-home">Home</a></li>
+      <li><a href="hobbies.html" id="nav-hobbies">Hobbies</a></li>
+      <li><a href="skills.html" id="nav-skills">Skills</a></li>
+      <li><a href="image_gallery.html" id="nav-gallery">Gallery</a></li>
+      <li><a href="contact.html" class="active" id="nav-contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ Page Header ══ -->
+  <header class="page-header" id="page-header">
+    <p class="eyebrow">Let's Connect</p>
+    <h1>Contact Me</h1>
+    <p>
+      Whether it is a project idea, a collaboration opportunity, or just a
+      hello — I am always happy to hear from you.
+    </p>
+  </header>
+
+  <!-- ══ Two-column layout ══ -->
+  <div class="contact-wrapper" id="contact-wrapper">
+
+    <!-- ── Left: Info ── -->
+    <div class="contact-info-col" id="contact-info-col">
+      <p class="section-label">Details</p>
+      <h2>Get in Touch</h2>
+      <p>
+        I am currently open to internship opportunities, freelance projects,
+        and interesting academic collaborations. Feel free to reach out through
+        any of the channels below, or use the form on the right.
+      </p>
+
+      <div class="contact-items" id="contact-items">
+
+        <a class="contact-item" id="ci-email" href="mailto:sbukhari.bese24seecs@seecs.edu.pk">
+          <div class="ci-body">
+            <div class="ci-label">Email</div>
+            <div class="ci-value">sbukhari.bese24seecs@seecs.edu.pk</div>
+          </div>
+        </a>
+
+        <a class="contact-item" id="ci-github" href="https://github.com/" target="_blank" rel="noopener">
+          <div class="ci-body">
+            <div class="ci-label">GitHub</div>
+            <div class="ci-value">github.com/momin-bukhari</div>
+          </div>
+        </a>
+
+        <a class="contact-item" id="ci-linkedin" href="https://www.linkedin.com/in/syed-abdul-momin-bukhari-240254348/" target="_blank" rel="noopener">
+          <div class="ci-body">
+            <div class="ci-label">LinkedIn</div>
+            <div class="ci-value">linkedin.com/in/syed-abdul-momin-bukhari</div>
+          </div>
+        </a>
+
+        <div class="contact-item" id="ci-location" style="cursor:default;">
+          <div class="ci-body">
+            <div class="ci-label">Location</div>
+            <div class="ci-value">Pakistan</div>
+          </div>
+        </div>
+
+        <div class="contact-item" id="ci-reg" style="cursor:default;">
+          <div class="ci-body">
+            <div class="ci-label">Registration No.</div>
+            <div class="ci-value">501993 &nbsp;·&nbsp; SE 15 A</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Right: Form ── -->
+    <div class="contact-form-col" id="contact-form-col">
+      <p class="section-label">Send a Message</p>
+      <h2>Drop Me a Note</h2>
+
+      <form id="contact-form" action="mailto:sbukhari.bese24seecs@seecs.edu.pk" method="post" enctype="text/plain">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="field-name">Your Name</label>
+            <input type="text" id="field-name" name="name" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label for="field-email">Email Address</label>
+            <input type="email" id="field-email" name="email" placeholder="john@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="field-subject">Subject</label>
+          <select id="field-subject" name="subject">
+            <option value="">— Select a topic —</option>
+            <option value="internship">Internship / Job Opportunity</option>
+            <option value="project">Project Collaboration</option>
+            <option value="freelance">Freelance Work</option>
+            <option value="academic">Academic / Study</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="field-message">Message</label>
+          <textarea id="field-message" name="message" placeholder="Hi Momin, I wanted to reach out about..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit" id="btn-submit">Send Message →</button>
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- ══ Footer ══ -->
+  <footer id="site-footer">
+    <p>© 2026 &nbsp;<span>Syed Abdul Momin Bukhari</span> &nbsp;·&nbsp; Reg. No. 501993 &nbsp;·&nbsp; SE 15 A</p>
+  </footer>
+
+</body>
+</html>

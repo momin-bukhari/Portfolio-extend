@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Skills — Syed Abdul Momin Bukhari</title>
+  <meta name="description" content="Technical and professional skills of Syed Abdul Momin Bukhari — full-stack developer proficient in React, Node, TypeScript, Docker, PostgreSQL and more.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:   #f5f0e8;
+      --paper:   #ede8dc;
+      --amber:   #c8860a;
+      --amber-d: #9e6a08;
+      --ink:     #2c2416;
+      --muted:   #7a6a52;
+      --border:  #c4b89a;
+      --serif:   'IM Fell English SC', Georgia, serif;
+      --mono:    'Courier Prime', 'Courier New', monospace;
+      --body:    'IM Fell English', Georgia, serif;
+    }
+
+    body {
+      font-family: var(--body);
+      background-color: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 999;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background-color: var(--ink);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 3px solid var(--amber);
+    }
+    nav .brand {
+      font-family: var(--serif); color: var(--amber); font-size: 1.1rem;
+      letter-spacing: 0.05em; padding: 1rem 0; text-decoration: none;
+    }
+    nav ul { list-style: none; display: flex; gap: 0.25rem; }
+    nav ul li a {
+      display: block; color: var(--cream); text-decoration: none;
+      font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 1.1rem 1rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav ul li a:hover, nav ul li a.active { color: var(--amber); border-bottom-color: var(--amber); }
+
+    /* ── Page Header ── */
+    .page-header {
+      background: var(--paper); border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem 2rem; text-align: center;
+    }
+    .page-header .eyebrow {
+      font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--amber); margin-bottom: 0.5rem;
+    }
+    .page-header h1 { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3rem); color: var(--ink); }
+    .page-header p {
+      margin-top: 0.75rem; font-size: 0.92rem; color: var(--muted); font-style: italic;
+      max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.7;
+    }
+
+    /* ── Wrapper ── */
+    .wrapper { max-width: 960px; margin: 3rem auto 4rem; padding: 0 2rem; }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex; align-items: center; gap: 1rem;
+      color: var(--muted); font-size: 0.75rem;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      margin-bottom: 1.8rem;
+    }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── Skill Pills Grid ── */
+    .skill-group { margin-bottom: 2.5rem; }
+
+    .skill-group h2 {
+      font-family: var(--serif); font-size: 1.1rem; color: var(--ink);
+      margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+
+    .skill-group h2::before {
+      content: '§';
+      color: var(--amber);
+      font-size: 1rem;
+    }
+
+    .pills {
+      display: flex; flex-wrap: wrap; gap: 0.6rem;
+    }
+
+    .pill {
+      font-family: var(--mono); font-size: 0.82rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border: 1.5px solid var(--border);
+      background: var(--paper);
+      color: var(--ink);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      cursor: default;
+      user-select: none;
+    }
+
+    .pill:hover {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--amber);
+    }
+
+    /* ── Skill Bars ── */
+    .skill-bars { display: flex; flex-direction: column; gap: 1.1rem; margin-bottom: 2.5rem; }
+
+    .skill-bar-item {}
+
+    .skill-bar-label {
+      display: flex; justify-content: space-between;
+      font-size: 0.82rem; margin-bottom: 0.35rem; color: var(--ink);
+    }
+
+    .skill-bar-label span:last-child { color: var(--muted); }
+
+    .skill-bar-track {
+      height: 6px;
+      background: var(--border);
+      position: relative;
+    }
+
+    .skill-bar-fill {
+      position: absolute; top: 0; left: 0; height: 100%;
+      background: var(--amber);
+      width: 0;                 /* animated via inline style below */
+      transition: width 1.2s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* ── Languages ── */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .lang-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      padding: 1.2rem 1.4rem;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .lang-card:hover { border-color: var(--amber); }
+
+    .lang-card .lang-name {
+      font-family: var(--serif); font-size: 1.1rem; margin-bottom: 0.3rem;
+    }
+
+    .lang-card .lang-level {
+      font-size: 0.72rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--amber);
+    }
+
+    /* ── Soft Skills ── */
+    .soft-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .soft-card {
+      background: var(--ink);
+      border: 1px solid transparent;
+      padding: 1.3rem 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .soft-card:hover { border-color: var(--amber); }
+
+    .soft-card .soft-title {
+      font-family: var(--serif); font-size: 0.95rem; color: var(--amber); margin-bottom: 0.4rem;
+    }
+
+    .soft-card .soft-desc {
+      font-size: 0.8rem; color: var(--cream); opacity: 0.7; line-height: 1.6;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background-color: var(--ink); color: var(--muted);
+      text-align: center; font-size: 0.78rem;
+      padding: 1.4rem 1rem; letter-spacing: 0.08em;
+      border-top: 3px solid var(--amber);
+    }
+    footer span { color: var(--amber); }
+
+    /* ── Bar animation trigger ── */
+    @keyframes fillBar { from { width: 0; } }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ Navigation ══ -->
+  <nav id="main-nav">
+    <a class="brand" href="home.html">Momin Bukhari</a>
+    <ul>
+      <li><a href="home.html" id="nav-home">Home</a></li>
+      <li><a href="hobbies.html" id="nav-hobbies">Hobbies</a></li>
+      <li><a href="skills.html" class="active" id="nav-skills">Skills</a></li>
+      <li><a href="image_gallery.html" id="nav-gallery">Gallery</a></li>
+      <li><a href="contact.html" id="nav-contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ Page Header ══ -->
+  <header class="page-header" id="page-header">
+    <p class="eyebrow">What I Know</p>
+    <h1>Personal Skills</h1>
+    <p>
+      A full-stack toolkit built over years of study and side-projects —
+      from browser pixels to containerised backend services.
+    </p>
+  </header>
+
+  <div class="wrapper">
+
+    <!-- ── Frontend ── -->
+    <div class="divider" id="div-frontend">Frontend</div>
+    <div class="skill-group" id="group-frontend">
+      <h2>Frontend Technologies</h2>
+      <div class="pills" id="pills-frontend">
+        <span class="pill">HTML</span>
+        <span class="pill">CSS</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">TypeScript</span>
+        <span class="pill">React</span>
+      </div>
+    </div>
+
+    <!-- ── Backend ── -->
+    <div class="divider" id="div-backend">Backend</div>
+    <div class="skill-group" id="group-backend">
+      <h2>Backend &amp; APIs</h2>
+      <div class="pills" id="pills-backend">
+        <span class="pill">Node.js</span>
+        <span class="pill">Express</span>
+        <span class="pill">NestJS</span>
+        <span class="pill">REST APIs</span>
+      </div>
+    </div>
+
+    <!-- ── Database / ORM ── -->
+    <div class="divider" id="div-db">Databases &amp; ORM</div>
+    <div class="skill-group" id="group-db">
+      <h2>Databases &amp; Data Layer</h2>
+      <div class="pills" id="pills-db">
+        <span class="pill">PostgreSQL</span>
+        <span class="pill">Supabase</span>
+        <span class="pill">Prisma ORM</span>
+      </div>
+    </div>
+
+    <!-- ── Languages ── -->
+    <div class="divider" id="div-langs">Programming Languages</div>
+    <div class="skill-bars" id="skill-bars">
+
+      <div class="skill-bar-item" id="bar-java">
+        <div class="skill-bar-label"><span>Java</span><span>Proficient</span></div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" style="width:75%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-bar-item" id="bar-cpp">
+        <div class="skill-bar-label"><span>C++</span><span>Proficient</span></div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" style="width:70%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-bar-item" id="bar-js">
+        <div class="skill-bar-label"><span>JavaScript / TypeScript</span><span>Advanced</span></div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" style="width:88%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-bar-item" id="bar-html">
+        <div class="skill-bar-label"><span>HTML &amp; CSS</span><span>Advanced</span></div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" style="width:90%;"></div>
+        </div>
+      </div>
+
+      <div class="skill-bar-item" id="bar-sql">
+        <div class="skill-bar-label"><span>SQL (PostgreSQL)</span><span>Intermediate</span></div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" style="width:68%;"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── DevOps / Tools ── -->
+    <div class="divider" id="div-tools">DevOps &amp; Tooling</div>
+    <div class="skill-group" id="group-tools">
+      <h2>Developer Tools</h2>
+      <div class="pills" id="pills-tools">
+        <span class="pill">Docker</span>
+        <span class="pill">Git</span>
+        <span class="pill">GitHub</span>
+        <span class="pill">Postman</span>
+        <span class="pill">VS Code</span>
+      </div>
+    </div>
+
+    <!-- ── Spoken Languages ── -->
+    <div class="divider" id="div-spoken">Spoken Languages</div>
+    <div class="lang-grid" id="lang-grid">
+      <div class="lang-card" id="lang-urdu">
+        <div class="lang-name">Urdu</div>
+        <div class="lang-level">Native</div>
+      </div>
+      <div class="lang-card" id="lang-english">
+        <div class="lang-name">English</div>
+        <div class="lang-level">Fluent</div>
+      </div>
+      <div class="lang-card" id="lang-punjabi">
+        <div class="lang-name">Punjabi</div>
+        <div class="lang-level">Conversational</div>
+      </div>
+    </div>
+
+    <!-- ── Soft Skills ── -->
+    <div class="divider" id="div-soft">Soft Skills</div>
+    <div class="soft-grid" id="soft-grid">
+      <div class="soft-card" id="soft-problem">
+        <div class="soft-title">Problem Solving</div>
+        <p class="soft-desc">Breaking complex challenges into manageable components with logical, systematic thinking.</p>
+      </div>
+      <div class="soft-card" id="soft-teamwork">
+        <div class="soft-title">Team Collaboration</div>
+        <p class="soft-desc">Honed through cricket and group projects — communicating clearly and pulling in the same direction.</p>
+      </div>
+      <div class="soft-card" id="soft-adapt">
+        <div class="soft-title">Adaptability</div>
+        <p class="soft-desc">Fast learner who picks up new frameworks, languages, and tools as the project demands.</p>
+      </div>
+      <div class="soft-card" id="soft-time">
+        <div class="soft-title">Time Management</div>
+        <p class="soft-desc">Balancing coursework, side-projects, and sport requires disciplined scheduling and prioritisation.</p>
+      </div>
+    </div>
+
+  </div><!-- /wrapper -->
+
+  <!-- ══ Footer ══ -->
+  <footer id="site-footer">
+    <p>© 2026 &nbsp;<span>Syed Abdul Momin Bukhari</span> &nbsp;·&nbsp; Reg. No. 501993 &nbsp;·&nbsp; SE 15 A</p>
+  </footer>
+
+</body>
+</html>

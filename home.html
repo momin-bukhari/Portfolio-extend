@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syed Abdul Momin Bukhari — Portfolio</title>
+  <meta name="description" content="Personal portfolio of Syed Abdul Momin Bukhari — Software Engineering student, developer, and sports enthusiast.">
+  <style>
+    /* ── Google Font import via @import (counts as internal CSS) ── */
+    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ── Design Tokens ── */
+    :root {
+      --cream:   #f5f0e8;
+      --paper:   #ede8dc;
+      --amber:   #c8860a;
+      --amber-d: #9e6a08;
+      --ink:     #2c2416;
+      --muted:   #7a6a52;
+      --border:  #c4b89a;
+      --serif:   'IM Fell English SC', Georgia, serif;
+      --mono:    'Courier Prime', 'Courier New', monospace;
+      --body:    'IM Fell English', Georgia, serif;
+    }
+
+    /* ── Base ── */
+    body {
+      font-family: var(--body);
+      background-color: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    /* ── Grain texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background-color: var(--ink);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--amber);
+    }
+
+    nav .brand {
+      font-family: var(--serif);
+      color: var(--amber);
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      padding: 1rem 0;
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    nav ul li a {
+      display: block;
+      color: var(--cream);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1.1rem 1rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--amber);
+      border-bottom-color: var(--amber);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 960px;
+      margin: 4rem auto 2rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-photo {
+      position: relative;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      display: block;
+      background-color: var(--paper);
+    }
+
+    /* Placeholder shown when img fails to load */
+    .hero-photo img::after {
+      content: 'photo';
+    }
+
+    .photo-caption {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 0.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-text .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-text h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text .tagline {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+      border-left: 3px solid var(--amber);
+      padding-left: 1rem;
+      font-style: italic;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-meta span::before {
+      content: '▸ ';
+      color: var(--amber);
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 1.4rem;
+      border: 2px solid var(--ink);
+      color: var(--ink);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn:hover { background: var(--ink); color: var(--cream); }
+
+    .btn-primary {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: var(--cream);
+    }
+
+    .btn-primary:hover { background: var(--amber-d); border-color: var(--amber-d); color: var(--cream); }
+
+    /* ── Divider ── */
+    .divider {
+      max-width: 960px;
+      margin: 2.5rem auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── About section ── */
+    .section {
+      max-width: 960px;
+      margin: 0 auto 3rem;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+
+    .section h2 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .about-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      padding: 1.4rem 1.6rem;
+      position: relative;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--amber);
+    }
+
+    .about-card h3 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      color: var(--ink);
+    }
+
+    .about-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── Quick Links ── */
+    .quick-links {
+      max-width: 960px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .ql-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      padding: 1.4rem;
+      text-decoration: none;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      transition: border-color 0.2s, transform 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ql-card::after {
+      content: '→';
+      position: absolute;
+      bottom: 1rem; right: 1rem;
+      color: var(--amber);
+      font-size: 1.2rem;
+      transition: right 0.2s;
+    }
+
+    .ql-card:hover { border-color: var(--amber); transform: translateY(-2px); }
+    .ql-card:hover::after { right: 0.7rem; }
+
+    .ql-card .ql-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+    }
+
+    .ql-card .ql-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-family: var(--body);
+      font-style: italic;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background-color: var(--ink);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.78rem;
+      padding: 1.4rem 1rem;
+      letter-spacing: 0.08em;
+      border-top: 3px solid var(--amber);
+    }
+
+    footer span { color: var(--amber); }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ Navigation ══ -->
+  <nav id="main-nav">
+    <a class="brand" href="home.html">Momin Bukhari</a>
+    <ul>
+      <li><a href="home.html" class="active" id="nav-home">Home</a></li>
+      <li><a href="hobbies.html" id="nav-hobbies">Hobbies</a></li>
+      <li><a href="skills.html" id="nav-skills">Skills</a></li>
+      <li><a href="image_gallery.html" id="nav-gallery">Gallery</a></li>
+      <li><a href="contact.html" id="nav-contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ Hero ══ -->
+  <section class="hero" id="hero">
+    <div class="hero-photo">
+      <img src="https://ui-avatars.com/api/?name=Momin+Bukhari&size=400&background=2c2416&color=c8860a&bold=true&font-size=0.35&length=2" alt="Syed Abdul Momin Bukhari — avatar">
+      <p class="photo-caption">Syed Abdul Momin Bukhari</p>
+    </div>
+    <div class="hero-text">
+      <p class="eyebrow">Personal Portfolio</p>
+      <h1>Syed Abdul<br>Momin Bukhari</h1>
+      <p class="tagline">
+        Software Engineer in training — building robust systems by day,<br>
+        chasing forehands and deep thoughts by evening.
+      </p>
+      <div class="hero-meta">
+        <span>Registration No. &nbsp;501993</span>
+        <span>Section &nbsp;SE 15 A</span>
+        <span>Software Engineering — University Student</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="skills.html" id="btn-skills">View My Skills</a>
+        <a class="btn" href="contact.html" id="btn-contact">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">About Me</div>
+
+  <!-- ══ About Cards ══ -->
+  <section class="section" id="about">
+    <p class="section-label">Introduction</p>
+    <h2>A Bit About Myself</h2>
+    <div class="about-grid">
+      <div class="about-card" id="card-background">
+        <h3>Background</h3>
+        <p>
+          I am Syed Abdul Momin Bukhari, a Software Engineering student passionate about crafting
+          full-stack applications — from clean REST APIs to polished user interfaces.
+          I enjoy solving complex problems and turning ideas into working software.
+        </p>
+      </div>
+      <div class="about-card" id="card-sports">
+        <h3>Sports &amp; Life</h3>
+        <p>
+          Outside the screen I am an avid tennis, table tennis, and cricket player.
+          Competition sharpens my focus and teamwork sharpens my perspective — both
+          translate directly into how I approach software projects.
+        </p>
+      </div>
+      <div class="about-card" id="card-philosophy">
+        <h3>Philosophy</h3>
+        <p>
+          I believe in continuous learning and deliberate practice. Whether debugging
+          a gnarly Node.js service or reading Stoic philosophy, the discipline of
+          thinking clearly is always the common thread.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">Explore</div>
+
+  <!-- ══ Quick Links ══ -->
+  <div class="quick-links" id="quick-links">
+    <a class="ql-card" href="hobbies.html" id="ql-hobbies">
+      <span class="ql-title">Hobbies</span>
+      <span class="ql-desc">Tennis, table tennis, cricket, and philosophy.</span>
+    </a>
+    <a class="ql-card" href="skills.html" id="ql-skills">
+      <span class="ql-title">Personal Skills</span>
+      <span class="ql-desc">Frontend, backend, databases, DevOps tools and more.</span>
+    </a>
+    <a class="ql-card" href="image_gallery.html" id="ql-gallery">
+      <span class="ql-title">Image Gallery</span>
+      <span class="ql-desc">A visual snapshot of moments and interests.</span>
+    </a>
+    <a class="ql-card" href="contact.html" id="ql-contact">
+      <span class="ql-title">Contact Me</span>
+      <span class="ql-desc">Email, LinkedIn, GitHub — let's connect.</span>
+    </a>
+  </div>
+
+  <!-- ══ Footer ══ -->
+  <footer id="site-footer">
+    <p>© 2026 &nbsp;<span>Syed Abdul Momin Bukhari</span> &nbsp;·&nbsp; Reg. No. 501993 &nbsp;·&nbsp; SE 15 A</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hobbies — Syed Abdul Momin Bukhari</title>
+  <meta name="description" content="Explore the hobbies of Syed Abdul Momin Bukhari — tennis, table tennis, cricket, and philosophy.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:   #f5f0e8;
+      --paper:   #ede8dc;
+      --amber:   #c8860a;
+      --amber-d: #9e6a08;
+      --ink:     #2c2416;
+      --muted:   #7a6a52;
+      --border:  #c4b89a;
+      --serif:   'IM Fell English SC', Georgia, serif;
+      --mono:    'Courier Prime', 'Courier New', monospace;
+      --body:    'IM Fell English', Georgia, serif;
+    }
+
+    body {
+      font-family: var(--body);
+      background-color: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background-color: var(--ink);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid var(--amber);
+    }
+
+    nav .brand {
+      font-family: var(--serif);
+      color: var(--amber);
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      padding: 1rem 0;
+      text-decoration: none;
+    }
+
+    nav ul { list-style: none; display: flex; gap: 0.25rem; }
+
+    nav ul li a {
+      display: block;
+      color: var(--cream);
+      text-decoration: none;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1.1rem 1rem;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav ul li a:hover, nav ul li a.active {
+      color: var(--amber);
+      border-bottom-color: var(--amber);
+    }
+
+    /* ── Page Header ── */
+    .page-header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--border);
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .page-header .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--ink);
+    }
+
+    .page-header p {
+      margin-top: 0.75rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-style: italic;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    /* ── Hobby Cards ── */
+    .hobbies-grid {
+      max-width: 960px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 2rem;
+    }
+
+    .hobby-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .hobby-card:hover {
+      border-color: var(--amber);
+      box-shadow: 4px 4px 0 var(--amber);
+    }
+
+    .hobby-card-img {
+      background: var(--cream);
+      border-right: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+      overflow: hidden;
+    }
+
+    .hobby-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Text fallback when image missing */
+    .hobby-card-img .emoji-fallback {
+      font-family: var(--serif);
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .hobby-card-body {
+      padding: 1.4rem 1.5rem;
+    }
+
+    .hobby-card-body .tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--amber);
+      color: var(--cream);
+      padding: 0.15rem 0.55rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .hobby-card-body h2 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .hobby-card-body p {
+      font-size: 0.87rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .hobby-card-body ul {
+      margin-top: 0.8rem;
+      padding-left: 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .hobby-card-body ul li::marker { color: var(--amber); }
+
+    /* ── Philosophy full-width card ── */
+    .philosophy-section {
+      max-width: 960px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .philosophy-card {
+      background: var(--ink);
+      border: 1px solid var(--amber);
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .philosophy-card .phil-left h2 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .philosophy-card .phil-left p {
+      font-size: 0.88rem;
+      color: var(--cream);
+      line-height: 1.8;
+      opacity: 0.85;
+    }
+
+    .philosophy-card .phil-right {
+      border-left: 1px solid var(--muted);
+      padding-left: 2rem;
+    }
+
+    .quote {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--cream);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+
+    .quote-author {
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      max-width: 960px;
+      margin: 0 auto 2rem;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      color: var(--muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background-color: var(--ink);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.78rem;
+      padding: 1.4rem 1rem;
+      letter-spacing: 0.08em;
+      border-top: 3px solid var(--amber);
+    }
+
+    footer span { color: var(--amber); }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ Navigation ══ -->
+  <nav id="main-nav">
+    <a class="brand" href="home.html">Momin Bukhari</a>
+    <ul>
+      <li><a href="home.html" id="nav-home">Home</a></li>
+      <li><a href="hobbies.html" class="active" id="nav-hobbies">Hobbies</a></li>
+      <li><a href="skills.html" id="nav-skills">Skills</a></li>
+      <li><a href="image_gallery.html" id="nav-gallery">Gallery</a></li>
+      <li><a href="contact.html" id="nav-contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ Page Header ══ -->
+  <header class="page-header" id="page-header">
+    <p class="eyebrow">Beyond the Code</p>
+    <h1>My Hobbies &amp; Interests</h1>
+    <p>
+      Life is not only spent at a desk. Here is how I recharge — through sport,
+      motion, and the quiet discipline of philosophical reading.
+    </p>
+  </header>
+
+  <!-- ══ Sport Hobbies ══ -->
+  <div class="divider" style="margin-top:3rem;">Sports</div>
+
+  <div class="hobbies-grid" id="hobbies-grid">
+
+    <!-- Tennis -->
+    <div class="hobby-card" id="hobby-tennis">
+      <div class="hobby-card-img">
+        <img src="https://loremflickr.com/400/300/tennis,sport?lock=11" alt="A tennis match in action">
+        <div class="emoji-fallback" style="display:none;">[ No Image ]</div>
+      </div>
+      <div class="hobby-card-body">
+        <span class="tag">Court Sport</span>
+        <h2>Tennis</h2>
+        <p>
+          Tennis demands explosive footwork, strategic thinking, and mental
+          fortitude under pressure — skills that map neatly onto software
+          engineering challenges.
+        </p>
+        <ul>
+          <li>Forehand &amp; backhand baseline rallies</li>
+          <li>Serve-and-volley net game</li>
+          <li>Singles &amp; doubles matches</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Table Tennis -->
+    <div class="hobby-card" id="hobby-table-tennis">
+      <div class="hobby-card-img">
+        <img src="https://loremflickr.com/400/300/tabletennis,pingpong?lock=33" alt="Table tennis player in a match">
+        <div class="emoji-fallback" style="display:none;">[ No Image ]</div>
+      </div>
+      <div class="hobby-card-body">
+        <span class="tag">Indoor Sport</span>
+        <h2>Table Tennis</h2>
+        <p>
+          Fast reflexes, pinpoint spin control, and reading your opponent — table
+          tennis is chess at 100 km/h. A brilliant stress-reliever between
+          long coding sessions.
+        </p>
+        <ul>
+          <li>Topspin loop drives</li>
+          <li>Defensive chopping technique</li>
+          <li>Tournament play at campus level</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Cricket -->
+    <div class="hobby-card" id="hobby-cricket">
+      <div class="hobby-card-img">
+        <img src="https://loremflickr.com/400/300/cricket,sport?lock=22" alt="Cricket match on the field">
+        <div class="emoji-fallback" style="display:none;">[ No Image ]</div>
+      </div>
+      <div class="hobby-card-body">
+        <span class="tag">Team Sport</span>
+        <h2>Cricket</h2>
+        <p>
+          Cricket is patience, strategy, and the thrill of a well-timed drive.
+          Playing with friends and colleagues keeps me grounded and team-oriented.
+        </p>
+        <ul>
+          <li>Middle-order batting</li>
+          <li>Medium-pace bowling</li>
+          <li>Fielding &amp; match analysis</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ Philosophy ══ -->
+  <div class="divider">Philosophy &amp; Thought</div>
+
+  <div class="philosophy-section" id="philosophy-section">
+    <div class="philosophy-card" id="philosophy-card">
+      <div class="phil-left">
+        <h2>Philosophy &amp; Deep Reading</h2>
+        <p>
+          Alongside sports, I am drawn to philosophical thought — particularly
+          Stoicism, existentialism, and the philosophy of mind. Reading gives me
+          a framework for resilience and clarity that complements both competitive
+          sport and software problem-solving.
+          <br><br>
+          Favourites include Marcus Aurelius, Albert Camus, and Nassim Taleb.
+          The common thread? Thinking carefully about how to act well under
+          uncertainty.
+        </p>
+      </div>
+      <div class="phil-right">
+        <p class="quote">
+          "You have power over your mind — not outside events.<br>
+          Realise this, and you will find strength."
+        </p>
+        <p class="quote-author">— Marcus Aurelius, Meditations</p>
+
+        <br>
+
+        <p class="quote">
+          "The impediment to action advances action.<br>
+          What stands in the way becomes the way."
+        </p>
+        <p class="quote-author">— Marcus Aurelius</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Footer ══ -->
+  <footer id="site-footer">
+    <p>© 2026 &nbsp;<span>Syed Abdul Momin Bukhari</span> &nbsp;·&nbsp; Reg. No. 501993 &nbsp;·&nbsp; SE 15 A</p>
+  </footer>
+
+</body>
+</html>
