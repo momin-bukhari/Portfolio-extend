@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery — Syed Abdul Momin Bukhari</title>
+  <meta name="description" content="A visual gallery from the life of Syed Abdul Momin Bukhari — sports, campus, and personal moments.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ══ Navigation ══ -->
+  <nav id="main-nav">
+    <a class="brand" href="home.html">Momin Bukhari</a>
+    <ul>
+      <li><a href="home.html" id="nav-home">Home</a></li>
+      <li><a href="hobbies.html" id="nav-hobbies">Hobbies</a></li>
+      <li><a href="skills.html" id="nav-skills">Skills</a></li>
+      <li><a href="gallery.html" class="active" id="nav-gallery">Gallery</a></li>
+      <li><a href="contact.html" id="nav-contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ══ Page Header ══ -->
+  <header class="page-header" id="page-header">
+    <p class="eyebrow">Visual Moments</p>
+    <h1>Image Gallery</h1>
+    <p>
+      A curated collection of snapshots — from campus courts to coding setups,
+      and everything in between.
+    </p>
+  </header>
+
+  <!-- ══ Gallery ══ -->
+  <div class="gallery-wrapper" id="gallery-wrapper">
+
+    <div class="divider" id="gallery-divider">All Photos</div>
+
+    <!-- Float-based gallery grid: items float left, wide items span 2/3 -->
+    <div class="gallery-grid" id="gallery-grid">
+
+      <!-- Image 1 — wide (2/3 row) -->
+      <a class="gallery-item wide" href="#lb-1" id="gitem-1">
+        <img src="images/photo2.jpg" alt="A tennis match on campus courts">
+        <div class="gallery-caption">
+          <span class="cap-title">Campus Tennis Match</span>
+          <span class="cap-tag">Sports</span>
+        </div>
+      </a>
+
+      <!-- Image 2 — narrow (1/3 row) -->
+      <a class="gallery-item" href="#lb-2" id="gitem-2">
+        <img src="images/photo4.jpg" alt="Cricket practice session on the field">
+        <div class="gallery-caption">
+          <span class="cap-title">Cricket Practice</span>
+          <span class="cap-tag">Sports</span>
+        </div>
+      </a>
+
+      <!-- Image 3 — narrow -->
+      <a class="gallery-item" href="#lb-3" id="gitem-3">
+        <img src="images/photo3.jpg" alt="Table tennis tournament in progress">
+        <div class="gallery-caption">
+          <span class="cap-title">Table Tennis Tournament</span>
+          <span class="cap-tag">Sports</span>
+        </div>
+      </a>
+
+      <!-- Image 4 — narrow -->
+      <a class="gallery-item" href="#lb-4" id="gitem-4">
+        <img src="images/photo5.jpg" alt="University campus building and grounds">
+        <div class="gallery-caption">
+          <span class="cap-title">University Campus</span>
+          <span class="cap-tag">Campus</span>
+        </div>
+      </a>
+
+      <!-- Image 5 — wide (2/3 row) -->
+      <a class="gallery-item wide" href="#lb-5" id="gitem-5">
+        <img src="images/photo6.jpg" alt="A developer coding on a laptop">
+        <div class="gallery-caption">
+          <span class="cap-title">My Coding Setup</span>
+          <span class="cap-tag">Personal</span>
+        </div>
+      </a>
+
+      <!-- Image 6 — narrow -->
+      <a class="gallery-item" href="#lb-6" id="gitem-6">
+        <img src="images/photo7.jpg" alt="Philosophy and reading books on a shelf">
+        <div class="gallery-caption">
+          <span class="cap-title">Philosophy Reading</span>
+          <span class="cap-tag">Personal</span>
+        </div>
+      </a>
+
+      <!-- Image 7 — narrow -->
+      <a class="gallery-item" href="#lb-7" id="gitem-7">
+        <img src="images/photo8.jpg" alt="Students working in a computer lab">
+        <div class="gallery-caption">
+          <span class="cap-title">Computer Lab</span>
+          <span class="cap-tag">Campus</span>
+        </div>
+      </a>
+
+    </div><!-- /gallery-grid -->
+  </div><!-- /gallery-wrapper -->
+
+  <!-- ══ CSS-only Lightboxes (no JavaScript) ══ -->
+
+  <div id="lb-1" class="lightbox">
+    <a href="#gallery-grid" class="lightbox-bg"></a>
+    <a href="#gallery-grid" class="lightbox-close">✕</a>
+    <img src="images/photo2.jpg" alt="Tennis match enlarged">
+    <span class="lightbox-cap">Campus Tennis Match</span>
+  </div>
+
+  <div id="lb-2" class="lightbox">
+    <a href="#gallery-grid" class="lightbox-bg"></a>
+    <a href="#gallery-grid" class="lightbox-close">✕</a>
+    <img src="images/photo4.jpg" alt="Cricket practice enlarged">
+    <span class="lightbox-cap">Cricket Practice</span>
+  </div>
+
+  <div id="lb-3" class="lightbox">
+    <a href="#gallery-grid" class="lightbox-bg"></a>
+    <a href="#gallery-grid" class="lightbox-close">✕</a>
+    <img src="images/photo3.jpg" alt="Table tennis tournament enlarged">
+    <span class="lightbox-cap">Table Tennis Tournament</span>
+  </div>
+
+  <div id="lb-4" class="lightbox">
+    <a href="#gallery-grid" class="lightbox-bg"></a>
+    <a href="#gallery-grid" class="lightbox-close">✕</a>
+    <img src="images/photo5.jpg" alt="University campus enlarged">
+    <span class="lightbox-cap">University Campus</span>
+  </div>
+
+  <div id="lb-5" class="lightbox">
+    <a href="#gallery-grid" class="lightbox-bg"></a>
+    <a href="#gallery-grid" class="lightbox-close">✕</a>
+    <img src="images/photo6.jpg" alt="Coding setup enlarged">
+    <span class="lightbox-cap">My Coding Setup</span>
+  </div>
+
+  <div id="lb-6" class="lightbox">
+    <a href="#gallery-grid" class="lightbox-bg"></a>
+    <a href="#gallery-grid" class="lightbox-close">✕</a>
+    <img src="images/photo7.jpg" alt="Philosophy books enlarged">
+    <span class="lightbox-cap">Philosophy Reading</span>
+  </div>
+
+  <div id="lb-7" class="lightbox">
+    <a href="#gallery-grid" class="lightbox-bg"></a>
+    <a href="#gallery-grid" class="lightbox-close">✕</a>
+    <img src="images/photo8.jpg" alt="Computer lab enlarged">
+    <span class="lightbox-cap">Computer Lab</span>
+  </div>
+
+  <!-- ══ Footer ══ -->
+  <footer id="site-footer">
+    <p>© 2026 &nbsp;<span>Syed Abdul Momin Bukhari</span> &nbsp;·&nbsp; Reg. No. 501993 &nbsp;·&nbsp; SE 15 A</p>
+  </footer>
+
+</body>
+</html>
